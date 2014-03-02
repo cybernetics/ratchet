@@ -181,7 +181,6 @@
 
   var PUSH = function (options) {
     var key;
-    var data = {};
     var xhr  = PUSH.xhr;
 
     options.container = options.container || options.transition ? document.querySelector('.content') : document.body;
@@ -353,10 +352,6 @@
   var locationReplace = function (url) {
     window.history.replaceState(null, '', '#');
     window.location.replace(url);
-  };
-
-  var parseURL = function (url) {
-    var a = document.createElement('a'); a.href = url; return a;
   };
 
   var extendWithDom = function (obj, fragment, dom) {
