@@ -122,25 +122,25 @@ $(function() {
     var currentTop = win.scrollTop();
 
     if((device.initialTop - currentTop) <= device.dockingOffset) {
-      device[0].className = "device device-fixed";
+      device[0].className = 'device device-fixed';
       device.css({top: device.dockingOffset});
     } else {
-      device[0].className = "device";
+      device[0].className = 'device';
       device[0].setAttribute('style','');
     }
 
     // Injection of components into device
     for (var l = contentSection.length; l--;) {
       if ((topCache[l] - currentTop) < windowHeight) {
-        if (currentActive == l) return;
+        if (currentActive === l) return;
         currentActive = l;
         bod.find('.component.active').removeClass('active');
         contentSectionItem = $(contentSection[l]);
         contentSectionItem.addClass('active');
         if(contentSectionItem.attr('id')) {
-          device.attr("id", contentSectionItem.attr('id') + "InDevice");
+          device.attr('id', contentSectionItem.attr('id') + 'InDevice');
         } else {
-          device.attr("id", "");
+          device.attr('id', '');
         }
         if (!contentSectionItem.hasClass('informational')) {
           updateContent(contentSectionItem.find('.highlight .html').text());
